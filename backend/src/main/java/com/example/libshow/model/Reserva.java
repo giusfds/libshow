@@ -5,17 +5,18 @@ import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
 
+enum Status {
+    PENDENTE,
+    CONCLUIDA,
+    CANCELADA
+}
+
+
 @Getter
 @Setter
 @Entity
 @Table(name = "reservas")
 public class Reserva {
-
-    public enum Status {
-        PENDENTE,
-        CONCLUIDA,
-        CANCELADA
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

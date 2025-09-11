@@ -16,12 +16,6 @@ enum StatusLivro {
 @Entity
 public class Livro {
 
-    public enum StatusLivro {
-        DISPONIVEL,
-        EMPRESTADO,
-        RESERVADO
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLivro;
