@@ -2,6 +2,8 @@ package com.example.libshow.model;
 
 import jakarta.persistence.*;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 enum StatusLivro {
     DISPONIVEL,
@@ -9,6 +11,8 @@ enum StatusLivro {
     RESERVADO
 }
 
+@Getter
+@Setter
 @Entity
 public class Livro {
 

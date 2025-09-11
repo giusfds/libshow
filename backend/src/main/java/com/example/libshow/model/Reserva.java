@@ -2,7 +2,11 @@ package com.example.libshow.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "reservas")
 public class Reserva {

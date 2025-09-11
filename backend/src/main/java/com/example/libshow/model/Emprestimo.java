@@ -2,16 +2,21 @@ package com.example.libshow.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
+    
+enum Status {
+    ATIVO,
+    DEVOLVIDO,
+    ATRASADO
+}
 
+@Getter
+@Setter
 @Entity
 @Table(name = "emprestimos")
 public class Emprestimo {
 
-    public enum Status {
-        ATIVO,
-        DEVOLVIDO,
-        ATRASADO
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,55 +37,6 @@ public class Emprestimo {
     private Livro livro;
 
     public Emprestimo() {}
-
-    // Getters e Setters
-    public Long getIdEmprestimo() {
-        return idEmprestimo;
-    }
-
-    public void setIdEmprestimo(Long idEmprestimo) {
-        this.idEmprestimo = idEmprestimo;
-    }
-
-    public LocalDate getDataEmprestimo() {
-        return dataEmprestimo;
-    }
-
-    public void setDataEmprestimo(LocalDate dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
-    }
-
-    public LocalDate getDataDevolucao() {
-        return dataDevolucao;
-    }
-
-    public void setDataDevolucao(LocalDate dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Livro getLivro() {
-        return livro;
-    }
-
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
 
     // Métodos de Negócio
     public void calcularDataDevolucao(int diasParaDevolver) {
