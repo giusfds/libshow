@@ -1,15 +1,10 @@
 package com.example.libshow.model;
 
+import com.example.libshow.enums.EmprestimoStatus;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
-    
-enum Status {
-    ATIVO,
-    DEVOLVIDO,
-    ATRASADO
-}
 
 @Getter
 @Setter
@@ -26,7 +21,7 @@ public class Emprestimo {
     private LocalDate dataDevolucao;
 
     @Enumerated(EnumType.STRING) // Salva o enum como string no banco
-    private Status status;
+    private EmprestimoStatus emprestimoStatus;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -46,10 +41,10 @@ public class Emprestimo {
     }
 
     public boolean verificarAtraso() {
-        return this.status == Status.ATIVO && this.dataDevolucao != null && LocalDate.now().isAfter(this.dataDevolucao);
+        return this.emprestimoStatus == EmprestimoStatus.ATIVO && this.dataDevolucao != null && LocalDate.now().isAfter(this.dataDevolucao);
     }
 
     public void registrarDevolucao() {
-        this.status = Status.DEVOLVIDO;
+        this.emprestimoStatus = EmprestimoStatus.DEVOLVIDO;
     }
 }

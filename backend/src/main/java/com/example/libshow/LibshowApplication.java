@@ -9,5 +9,4 @@ public class LibshowApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LibshowApplication.class, args);
 	}
-
 }
