@@ -1,4 +1,6 @@
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/LibshowApplication.java
+/Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/config/SenhaUtils.java
+/Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/controller/UsuarioController.java
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/enums/EmprestimoStatus.java
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/enums/LivroStatus.java
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/enums/ReservaStatus.java
@@ -7,3 +9,5 @@
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/model/Livro.java
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/model/Reserva.java
 /Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/model/Usuario.java
+/Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/repository/UsuarioRepository.java
+/Users/giuseppesena/git/libshow/backend/src/main/java/com/example/libshow/service/UsuarioService.java
