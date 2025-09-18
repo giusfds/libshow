@@ -3,11 +3,12 @@ package com.example.libshow.model;
 import com.example.libshow.enums.EmprestimoStatus;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "emprestimos")
 public class Emprestimo {
