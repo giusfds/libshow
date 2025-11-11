@@ -88,3 +88,17 @@ Nesta aplicação, foram utilizados dois padrões de projeto fundamentais para a
           * **User Name:** `show`
           * **Password:** (deixe em branco)
           * Clique em **"Connect"**.
+
+-----
+
+### **6. Testes Automatizados**
+
+O backend do sistema agora conta com testes automatizados implementados com **JUnit 5**, **Mockito** e **Spring Boot Test**, conforme o escopo da disciplina.
+
+As camadas testadas incluem:
+
+  * **Domínio:** Testa a lógica de negócio contida nas entidades, garantindo que os métodos e regras de negócio funcionem conforme esperado.
+  * **Serviço:** Verifica a coordenação das operações entre repositórios e controladores, assegurando a correta execução das regras de negócio.
+  * **Controlador:** Testa as requisições HTTP e a interação com a camada de serviço, garantindo que a API responda corretamente às chamadas externas.
+
+O projeto está pronto e funcional, com cobertura de testes adequada e o backend completamente implementado.
