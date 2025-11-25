@@ -73,12 +73,6 @@ cd backend
 java -jar target/libshow-0.0.1-SNAPSHOT.jar
 ```
 
-**💡 Atalho:** Use o script pronto na raiz do projeto:
-
-```bash
-./run-backend.sh
-```
-
 O backend estará disponível em **http://localhost:8080**
 
 **Endpoints principais:**
@@ -107,12 +101,6 @@ pnpm dev
 # ou: npm run dev
 ```
 
-**💡 Atalho:** Use o script pronto na raiz do projeto:
-
-```bash
-./run-frontend.sh
-```
-
 O frontend estará disponível em **http://localhost:5173**
 
 #### 4️⃣ Acesse a Aplicação
@@ -123,87 +111,71 @@ Abra seu navegador em **http://localhost:5173** e comece a usar o LibShow!
 
 ### Método 1.5: Script Automatizado (Mais Rápido) ⚡
 
-Use o script que inicia **backend e frontend automaticamente**:
+Use o **script unificado** que simplifica a execução:
 
 ```bash
 # Na raiz do projeto
+
+# Inicia backend + frontend juntos
 ./run.sh
+
+# Ou inicia apenas o backend
+./run.sh backend
+
+# Ou inicia apenas o frontend
+./run.sh frontend
+
+# Ver ajuda
+./run.sh help
 ```
 
 Este script:
 
-- ✅ Compila o backend automaticamente
-- ✅ Instala dependências do frontend
-- ✅ Inicia ambos os serviços
-- ✅ Mostra os logs em arquivos separados
+- ✅ Compila o backend automaticamente se necessário
+- ✅ Instala dependências do frontend automaticamente
+- ✅ Inicia os serviços com um único comando
+- ✅ Mostra os logs em arquivos separados (`backend.log` e `frontend.log`)
 - ✅ Para tudo com Ctrl+C
+- ✅ Suporta execução individual (backend ou frontend)
 
 ---
 
-### Método 2: Docker Compose (Produção) 🐳
+### Método 2: Docker Compose 🐳
 
-Este método configura o ambiente completo com PostgreSQL, backend e frontend containerizados.
-
-#### 1️⃣ Configure as Variáveis de Ambiente
+A forma mais simples de executar tudo com containers:
 
 ```bash
-# Copie o arquivo de exemplo
-cp .env.example .env
-
-# Edite conforme necessário (opcional)
-nano .env
-```
-
-#### 2️⃣ Suba os Containers
-
-```bash
-# Inicie todos os serviços
+# Inicie backend + frontend
 docker-compose up -d
 
-# Veja os logs em tempo real
+# Ver logs em tempo real
 docker-compose logs -f
+
+# Parar tudo
+docker-compose down
 ```
 
-#### 3️⃣ Acesse a Aplicação
+**Acesse:**
+- **Frontend**: http://localhost
+- **Backend**: http://localhost:8080
+- **H2 Console**: http://localhost:8080/h2-console
 
-- **Frontend**: http://localhost (porta 80)
-- **Backend API**: http://localhost:8080
-- **PostgreSQL**: localhost:5432
-
-#### 4️⃣ Comandos Úteis Docker
-
+**Comandos úteis:**
 ```bash
-# Ver status dos containers
+# Ver status
 docker-compose ps
 
-# Parar todos os serviços
-docker-compose down
-
-# Parar e remover volumes (apaga dados do banco!)
-docker-compose down -v
-
-# Rebuild das imagens
+# Rebuild se mudou o código
 docker-compose up -d --build
 
-# Ver logs de um serviço específico
+# Logs de um serviço específico
 docker-compose logs -f backend
-docker-compose logs -f frontend
+
+# Parar e remover tudo (incluindo dados)
+docker-compose down -v
 ```
 
----
-
-### Método 3: Docker Compose com Monitoramento 📊
-
-Para executar com Prometheus e Grafana:
-
-```bash
-# Suba com profile de monitoramento
-docker-compose --profile monitoring up -d
-
-# Acesse:
-# - Prometheus: http://localhost:9090
-# - Grafana: http://localhost:3000 (admin/admin)
-```
+> **💡 Dica:** Use `./run.sh` para desenvolvimento (mais rápido) e `docker-compose` para testar em ambiente containerizado
 
 ---
 

@@ -200,4 +200,13 @@ target
 # H2 Database files
 data/
 *.mv.db
-*.trace.db-versions
+*.trace.db
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
