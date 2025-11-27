@@ -261,7 +261,7 @@ function App() {
 		try {
 			setLoadingEmprestimos(true)
 			const data = await loanService.getAll()
-			
+
 			// Filtra empréstimos para PROFESSOR e STUDENT verem apenas os próprios
 			if (permissions.isProfessor() || permissions.isStudent()) {
 				const filteredData = data.filter(loan => loan.user?.email === user)
@@ -378,7 +378,7 @@ function App() {
 		try {
 			setLoadingReservas(true)
 			const data = await reservationService.getAll()
-			
+
 			// Filtra reservas para PROFESSOR e STUDENT verem apenas as próprias
 			if (permissions.isProfessor() || permissions.isStudent()) {
 				const filteredData = data.filter(reservation => reservation.user?.email === user)
@@ -632,43 +632,43 @@ function App() {
 					{/* Loans Tab */}
 					{permissions.canViewLoans() && (
 						<TabsContent value="emprestimos" className="space-y-4">
-						<LoanModal
-							open={loanModalOpen}
-							onOpenChange={setLoanModalOpen}
-							loanForm={loanForm}
-							setLoanForm={setLoanForm}
-							users={usuarios}
-							books={livros}
-							reservations={reservas}
-							onSubmit={handleLoanSubmit}
-							canSelectUser={permissions.isAdmin() || permissions.isLibrarian()}
-						/>							<Card>
+							<LoanModal
+								open={loanModalOpen}
+								onOpenChange={setLoanModalOpen}
+								loanForm={loanForm}
+								setLoanForm={setLoanForm}
+								users={usuarios}
+								books={livros}
+								reservations={reservas}
+								onSubmit={handleLoanSubmit}
+								canSelectUser={permissions.isAdmin() || permissions.isLibrarian()}
+							/>							<Card>
 								<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
 									<div>
 										<CardTitle>Gerenciamento de Empréstimos</CardTitle>
 										<CardDescription className="mt-1.5">
 											Registre empréstimos e devoluções de livros
 										</CardDescription>
-								</div>
-								{permissions.canCreateLoans() && (
-									<Button onClick={handleOpenLoanModal}>
-										<Plus className="h-4 w-4 mr-2" />
-										Registrar Empréstimo
-									</Button>
-								)}
+									</div>
+									{permissions.canCreateLoans() && (
+										<Button onClick={handleOpenLoanModal}>
+											<Plus className="h-4 w-4 mr-2" />
+											Registrar Empréstimo
+										</Button>
+									)}
 								</CardHeader>
 								<CardContent>
 									<h3 className="text-lg font-semibold mb-4">Empréstimos Ativos</h3>
-								<LoanList
-									loans={emprestimos}
-									loading={loadingEmprestimos}
-									onReturn={handleReturnBook}
-									onDelete={handleDeleteLoan}
-									canManage={permissions.canManageLoans()}
-									canReturnLoan={permissions.canReturnLoan()}
-									canDeleteFinishedLoan={permissions.canDeleteFinishedLoan()}
-									currentUserEmail={user}
-								/>
+									<LoanList
+										loans={emprestimos}
+										loading={loadingEmprestimos}
+										onReturn={handleReturnBook}
+										onDelete={handleDeleteLoan}
+										canManage={permissions.canManageLoans()}
+										canReturnLoan={permissions.canReturnLoan()}
+										canDeleteFinishedLoan={permissions.canDeleteFinishedLoan()}
+										currentUserEmail={user}
+									/>
 								</CardContent>
 							</Card>
 						</TabsContent>
@@ -677,42 +677,42 @@ function App() {
 					{/* Reservations Tab */}
 					{permissions.canViewReservations() && (
 						<TabsContent value="reservas" className="space-y-4">
-						<ReservationModal
-							open={reservationModalOpen}
-							onOpenChange={setReservationModalOpen}
-							reservationForm={reservationForm}
-							setReservationForm={setReservationForm}
-							users={usuarios}
-							books={livros}
-							onSubmit={handleReservationSubmit}
-							canSelectUser={permissions.isAdmin() || permissions.isLibrarian()}
-						/>							<Card>
+							<ReservationModal
+								open={reservationModalOpen}
+								onOpenChange={setReservationModalOpen}
+								reservationForm={reservationForm}
+								setReservationForm={setReservationForm}
+								users={usuarios}
+								books={livros}
+								onSubmit={handleReservationSubmit}
+								canSelectUser={permissions.isAdmin() || permissions.isLibrarian()}
+							/>							<Card>
 								<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
 									<div>
 										<CardTitle>Gerenciamento de Reservas</CardTitle>
 										<CardDescription className="mt-1.5">
 											Gerencie reservas de livros indisponíveis
 										</CardDescription>
-								</div>
-								{permissions.canCreateReservations() && (
-									<Button onClick={handleOpenReservationModal}>
-										<Plus className="h-4 w-4 mr-2" />
-										Fazer Reserva
-									</Button>
-								)}
+									</div>
+									{permissions.canCreateReservations() && (
+										<Button onClick={handleOpenReservationModal}>
+											<Plus className="h-4 w-4 mr-2" />
+											Fazer Reserva
+										</Button>
+									)}
 								</CardHeader>
 								<CardContent>
 									<h3 className="text-lg font-semibold mb-4">Reservas Cadastradas</h3>
-								<ReservationList
-									reservations={reservas}
-									loading={loadingReservas}
-									onConvertToLoan={handleConvertReservationToLoan}
-									onCancel={handleCancelReservation}
-									onDelete={handleDeleteReservation}
-									canManage={permissions.canManageReservations()}
-									canConvertReservation={permissions.canConvertReservationToLoan()}
-									currentUserEmail={user}
-								/>
+									<ReservationList
+										reservations={reservas}
+										loading={loadingReservas}
+										onConvertToLoan={handleConvertReservationToLoan}
+										onCancel={handleCancelReservation}
+										onDelete={handleDeleteReservation}
+										canManage={permissions.canManageReservations()}
+										canConvertReservation={permissions.canConvertReservationToLoan()}
+										currentUserEmail={user}
+									/>
 								</CardContent>
 							</Card>
 						</TabsContent>
